@@ -38,15 +38,26 @@ export const TutorialsPage: React.FC = () => {
           videos.map((video) => (
             <div key={video.id} className="bg-white p-6 md:p-8 rounded-xl shadow-sm border border-slate-200/80 overflow-hidden">
                <div className="aspect-w-16 aspect-h-9 bg-slate-200 rounded-lg overflow-hidden mb-6">
-                <video
-                  key={video.id}
-                  className="w-full h-full object-cover"
-                  src={video.videoUrl}
-                  controls
-                  playsInline
-                  preload="metadata"
-                  aria-label={video.title}
-                />
+                {video.videoUrl.includes('youtube.com/embed') ? (
+                  <iframe
+                    className="w-full h-full"
+                    src={video.videoUrl}
+                    title={video.title}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                ) : (
+                  <video
+                    key={video.id}
+                    className="w-full h-full object-cover"
+                    src={video.videoUrl}
+                    controls
+                    playsInline
+                    preload="metadata"
+                    aria-label={video.title}
+                  />
+                )}
               </div>
               <h2 className="font-display text-2xl font-bold text-slate-800">{video.title}</h2>
               <p className="mt-2 text-slate-600">{video.description}</p>

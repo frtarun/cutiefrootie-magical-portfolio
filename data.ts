@@ -52,7 +52,7 @@ export const tutorialVideos: TutorialVideo[] = [
     id: '1',
     title: 'How to Clone and Run the Project from GitHub',
     description: 'A step-by-step guide to get you started. This video walks you through cloning the repository, installing dependencies, and launching the website on your local machine. Perfect for beginners who want to use these magical templates!',
-    videoUrl: 'https://youtu.be/hNMkIF0klow?si=-fyyg1ps3IJgAs7B',
+    videoUrl: 'https://www.youtube.com/embed/hNMkIF0klow',
   },
   {
     id: '2',
