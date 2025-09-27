@@ -360,6 +360,15 @@ app.post(
   }
 );
 
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
 // Setup admin routes
 setupAdminRoutes(app, Contact, Project, BlogPost, requireAuth, requireAdmin);
 
@@ -395,12 +404,3 @@ app.listen(PORT, () => {
   console.log(`Backend listening on port ${PORT}`);
 });
 
-// Helpers
-function escapeHtml(str) {
-  return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
-}
